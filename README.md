@@ -1,16 +1,49 @@
-# React + Vite
+# React E-commerce App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small React + Vite e-commerce app for browsing and managing products.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Install dependencies:
 
-## React Compiler
+```bash
+npm install
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+2. Start the development server:
 
-## Expanding the ESLint configuration
+```bash
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+3. Open the displayed local URL (for example `http://localhost:5173` or `http://localhost:5174`).
+
+## Available scripts
+
+- `npm run dev` — start the Vite development server
+- `npm run build` — build the production bundle
+- `npm run preview` — locally preview the production build
+- `npm run lint` — run ESLint checks on the project
+
+## Project structure
+
+- `src/App.jsx` — app shell and route configuration
+- `src/pages/Home.jsx` — product listing page
+- `src/pages/ProductDetails.jsx` — single product detail page
+- `src/pages/ProductForm.jsx` — product add/edit form
+- `src/context/ProductContext.jsx` — React context provider for product data
+- `src/context/productContextObject.js` — context helper and `useProducts` hook
+
+## Key design & technical decisions
+
+- **Vite + React**: chosen for fast local development and a lightweight project setup.
+- **React Router v7**: used for page navigation and route-based views.
+- **Context API**: central product state is shared via context so components can read and update products consistently.
+- **Fake Store API**: initial product data is fetched from `https://fakestoreapi.com/products` on startup.
+- **Local state management**: create, update, and delete operations are handled in memory so the app remains simple and easy to extend.
+- **Tailwind CSS**: styling is implemented with Tailwind for responsive layout and consistent UI design.
+
+## Notes
+
+- Product changes are not persisted to a backend. Added or edited products exist only until the page is refreshed.
+- To extend the app, add features such as search, filter by category, sorting, or backend persistence.
